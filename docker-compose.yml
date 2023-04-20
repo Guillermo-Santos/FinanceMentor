@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  financementor.server:
+    image: ${DOCKER_REGISTRY-}financementorserver
+    build:
+      context: .
+      dockerfile: FinanceMentor/Server/Dockerfile
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: 'RabbitMQ-Server'
+    hostname: rabbitmqnode1
+    volumes:
+     - rbdata:/var/lib/rabbitmq
+    ports:
+        - "4369:4369"
+        - "5672:5672"
+        - "15672:15672"
+        - "25672:25672"
+        - "35672:35672"
+    environment:
+        - RABBITMQ_ERLANG_COOKIE=cluster_cookie
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=admin
+volumes:
+  rbdata:
