@@ -17,4 +17,4 @@ jobs:
     - name: See File structure
       run: ls
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag financementor:$(date +%s)
+      run: docker build . --file ./FinanceMentor/Server/Dockerfile --tag financementor:$(date +%s)
