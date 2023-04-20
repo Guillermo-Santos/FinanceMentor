@@ -42,12 +42,12 @@
     private Earning earning = new(){ Date = DateTime.Today };
 
     [Parameter]
-    public EventCallback OnSumitCallback { get; set; }
+    public EventCallback OnSubmitCallback { get; set; }
 
     public async Task HandleValidSubmit()
     {
         await Http.PostAsJsonAsync<Earning>("api/Earnings",earning);
-        await OnSumitCallback.InvokeAsync();
+        await OnSubmitCallback.InvokeAsync();
     }
 
 

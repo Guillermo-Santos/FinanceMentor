@@ -14,12 +14,10 @@ RUN dotnet restore "FinanceMentor/Server/FinanceMentor.Server.csproj"
 COPY . .
 WORKDIR "/src/FinanceMentor/Server"
 RUN dotnet build "FinanceMentor.Server.csproj" -c Release -o /app/build
-RUN ls -la /app/build
 
 
 FROM build AS publish
 RUN dotnet publish "FinanceMentor.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
-RUN ls -la /app/publish
 
 
 FROM base AS final
