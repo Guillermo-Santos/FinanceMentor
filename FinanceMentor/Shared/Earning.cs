@@ -4,6 +4,11 @@ namespace FinanceMentor.Shared
 {
     public sealed class Earning
     {
+        public Earning()
+        {
+            Id = Guid.NewGuid();
+        }
+        public Guid Id { get; set; }
         [Required]
         public DateTime Date { get; set; }
         [Required]

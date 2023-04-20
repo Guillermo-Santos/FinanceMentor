@@ -28,5 +28,12 @@ namespace FinanceMentor.Server.Controllers
         {
             _earningRepository.Add(earning);
         }
+
+        [HttpDelete("{id?}")]
+        public void Delete(Guid id){
+            var entity = _earningRepository.GetAll()
+                .Single(item => item.Id == id);
+            _earningRepository.Remove(entity);
+        }
     }
 }
