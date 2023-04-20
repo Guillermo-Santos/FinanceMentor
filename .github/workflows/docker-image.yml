@@ -14,7 +14,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: See File structure
-      run: ls
     - name: Build the Docker image
       run: docker build . --file ./FinanceMentor/Server/Dockerfile --tag financementor:$(date +%s)
