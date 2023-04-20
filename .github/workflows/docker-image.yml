@@ -15,5 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./Server/Dockerfile --tag financementor:$(date +%s)
-      working-directory: ./FinanceMenor
+      run: docker build . --file /FinanceMenor/Server/Dockerfile --tag financementor:$(date +%s)
