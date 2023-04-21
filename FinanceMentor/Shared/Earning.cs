@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+#nullable disable
 namespace FinanceMentor.Shared
 {
     public sealed class Earning
