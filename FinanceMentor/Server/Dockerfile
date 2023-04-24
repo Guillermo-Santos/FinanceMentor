@@ -23,5 +23,4 @@ RUN dotnet publish "FinanceMentor.Server.csproj" -c Release -o /app/publish /p:U
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-RUN ls
 ENTRYPOINT ["dotnet", "FinanceMentor.Server.dll"]
