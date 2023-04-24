@@ -17,9 +17,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Cache Docker layers
+      uses: actions/cache@v2
+      with:
+          path: |
+            /var/lib/docker/image
+          key: ${{ runner.os }}-docker-${{ hashFiles('**/Dockerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
     - name: Build the Docker image
-      run: docker build . --file ./FinanceMentor/Server/Dockerfile --tag financementor:$TAG
+      run: docker build . --file ./FinanceMentor/Server/Dockerfile --tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG
 
   publish:
     needs: build
