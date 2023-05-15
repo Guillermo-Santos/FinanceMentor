@@ -35,6 +35,13 @@
                                     <td><button class="btn btn-danger btn-sm" @onclick="() => OpenDeleteDialog(earning)">Delete</button></td>
                                 </tr>
                             }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total:</b></td>
+                                <td>@earnings.Sum(e => e.Amount).ToString("C2", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                                <td></td>
+                            </tr>
                         }
                     </tbody>
                 </table>
